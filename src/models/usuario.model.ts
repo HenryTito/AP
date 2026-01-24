@@ -1,4 +1,10 @@
 import { Schema,model } from "mongoose";
+import UsuarioInterface from "../interfaces/usuario.interface";
+
+interface UsuarioModel extends UsuarioInterface, Document{
+
+}
+
 
 const UsuarioSchema = new Schema({
     nome:{
@@ -16,4 +22,4 @@ const UsuarioSchema = new Schema({
 });
 
 
-export default model('Usuario', UsuarioSchema)
+export default model<UsuarioModel>('Usuario', UsuarioSchema)
