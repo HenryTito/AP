@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import mongoose, { mongo } from 'mongoose'
 import 'dotenv/config'
+import usuarioRoute from './routes/usuario.route'
 
 
 export default class app{
@@ -10,9 +11,10 @@ export default class app{
 
     constructor(){
         this.express = express();
-        this.listen();
         this.middlewares();
         this.connectDatabase();
+        this.routes();
+        this.listen();
         
     }
 
@@ -51,6 +53,10 @@ export default class app{
             console.log("Deu ruim na conexão em si")
         }
            
+    }
+
+    private routes():void{
+        this.express.use('/usuarios', usuarioRoute )
     }
 
 
