@@ -10,7 +10,8 @@ class UsuarioController{
             message:"Usuário Cadastrado com Sucesso",
             _id: usuario._id,
             nome: usuario.nome,
-            avatar: usuario.avatar
+            avatar: usuario.avatar,
+            
         })
         
         }catch(error){

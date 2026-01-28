@@ -1,6 +1,6 @@
 export default interface UsuarioInterface{
     _id:any | string;
     nome?: string;
-    senha?: string;
+    senha: string;
     avatar?: string;
 }
