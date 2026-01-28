@@ -1,11 +1,11 @@
-##Avaliação Pessoal
+## Avaliação Pessoal
  ---
 
  Repositório destinado a uma avaliação pessoal, onde coloco em prática meus conhecimentos e "desenferrujo" outros em TypeScript!
 
 ---
 
-##O que será feito?
+## O que será feito?
 
 ---
 
