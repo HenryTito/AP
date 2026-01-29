@@ -18,6 +18,35 @@ class UsuarioController{
             return res.status(401).json({message: error})
         }
     }
+
+
+
+
+    public async autenticar(req:Request, res:Response):Promise<Response>{
+            const {nome, senha} = req.body;
+            const usuario = await usuarioModel.findOne({nome : nome})
+
+            if(!usuario){
+                return res.status(400).json({
+                    message:"Usuário não encontrado"
+                })
+
+
+
+
+            }
+            const senhaValida = await usuario.compararSenhas(senha);
+
+            if(!senhaValida){
+                return res.status(400).json({
+                    message:"Senha inválida"
+                })
+            }
+
+            return res.json({usuario:usuario})
+
+
+    }
 }
 
 

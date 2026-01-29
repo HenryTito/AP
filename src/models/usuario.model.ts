@@ -3,7 +3,7 @@ import UsuarioInterface from "../interfaces/usuario.interface";
 import bcrypt from 'bcrypt';
 
 interface UsuarioModel extends UsuarioInterface, Document{
-
+    compararSenhas(senha:string):Promise<boolean>
 }
 
 
@@ -31,6 +31,14 @@ UsuarioSchema.pre<UsuarioModel>('save', async function gerarAvatar(){
 
         this.avatar = `https://api.dicebear.com/7.x/identicon/png?seed=${randomId}`;
 })
+
+
+
+UsuarioSchema.methods.compararSenhas = function(senha: string): Promise<boolean>{
+    return bcrypt.compare(senha, this.senha)
+
+
+}
 
 
 export default model<UsuarioModel>('Usuario', UsuarioSchema)
