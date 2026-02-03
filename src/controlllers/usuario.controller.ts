@@ -43,7 +43,13 @@ class UsuarioController{
                 })
             }
 
-            return res.json({usuario:usuario})
+            return res.json({
+                usuario:usuario,
+                token: usuario.gerarToken()
+            
+            
+            
+            })
 
 
     }
